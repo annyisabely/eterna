@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-nude-50: #fdf8f6;
+  --color-nude-100: #f9ede8;
+  --color-nude-200: #f2d9d0;
+  --color-nude-300: #e8c0b0;
+  --color-nude-400: #d99e88;
+  --color-nude-500: #c97e62;
+  --color-nude-600: #b5634a;
+  --color-nude-700: #96503c;
+  --color-nude-800: #7a4234;
+  --color-nude-900: #64372c;
+
+  --color-mocha-50: #f9f5f0;
+  --color-mocha-100: #f0e6d6;
+  --color-mocha-200: #e1ccac;
+  --color-mocha-300: #ccaa7c;
+  --color-mocha-400: #b8884c;
+  --color-mocha-500: #a46e34;
+  --color-mocha-600: #8a5a2b;
+  --color-mocha-700: #6e4722;
+  --color-mocha-800: #57381c;
+  --color-mocha-900: #3d2812;
+
+  --color-cream: #fdf8f4;
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: #1f2937;
+  font-family: var(--font-sans);
+  min-height: 100vh;
+}
