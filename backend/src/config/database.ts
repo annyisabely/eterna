@@ -29,9 +29,9 @@ const mockAdmins = [
 const mockSettings: Record<string, string> = {
   store_name: 'Eterna Cosméticos e Acessórios',
   store_slogan: 'Cosméticos e Acessórios',
-  store_address: 'Av. Emílio Johnson, 1020 - Centro, Almirante Tamandaré – PR',
-  store_phone: '(41) 3657-1000',
-  store_whatsapp: '5541999999999',
+  store_address: 'Av. Emílio Johnson, 782 - Vila Santa Terezinha, Almirante Tamandaré – PR, CEP 83501-000',
+  store_phone: '(41) 99994-9204',
+  store_whatsapp: '5541999949204',
   store_email: 'eterna@gmail.com',
   store_instagram: 'https://www.instagram.com/eternacosmeticos/',
   store_hours: 'Segunda a Sexta: 09h às 18h | Sábado: 09h às 13h',

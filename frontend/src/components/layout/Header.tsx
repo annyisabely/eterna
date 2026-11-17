@@ -70,7 +70,7 @@ export const Header: React.FC = () => {
                 className="hover:text-white transition-colors flex items-center gap-1"
               >
                 <Phone className="w-3 h-3 text-nude-400" />
-                <span>WhatsApp</span>
+                <span>(41) 99994-9204</span>
               </a>
             )}
             <Link to="/sobre" className="hover:text-white transition-colors">

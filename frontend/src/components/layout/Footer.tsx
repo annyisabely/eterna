@@ -170,7 +170,7 @@ export const Footer: React.FC = () => {
                     rel="noopener noreferrer"
                     className="hover:text-white underline decoration-nude-500/50"
                   >
-                    WhatsApp: +{settings.store_whatsapp}
+                    WhatsApp: (41) 99994-9204
                   </a>
                 </li>
               )}
