@@ -34,7 +34,7 @@ const mockSettings: Record<string, string> = {
   store_whatsapp: '5541999949204',
   store_email: 'eterna@gmail.com',
   store_instagram: 'https://www.instagram.com/eternacosmeticos/',
-  store_hours: 'Segunda a Sexta: 09h às 18h | Sábado: 09h às 13h',
+  store_hours: 'Seg. a Qua.: 09h30 às 18h | Qui. e Sex.: 09h30 às 18h30 | Sábado: 09h30 às 17h',
   store_about:
     'A Eterna Cosméticos e Acessórios é a sua loja completa de beleza, maquiagem, skincare, perfumaria e acessórios em Almirante Tamandaré – PR.',
   delivery_enabled: 'true',

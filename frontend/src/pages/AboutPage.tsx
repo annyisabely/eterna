@@ -93,7 +93,7 @@ export const AboutPage: React.FC = () => {
             <Clock className="w-5 h-5 text-nude-700 shrink-0 mt-0.5" />
             <div>
               <p className="font-semibold text-gray-900">Horário de Atendimento</p>
-              <p>{settings.store_hours || 'Segunda a Sexta: 09h às 18h | Sábado: 09h às 13h'}</p>
+              <p>{settings.store_hours || 'Seg. a Qua.: 09h30 às 18h | Qui. e Sex.: 09h30 às 18h30 | Sábado: 09h30 às 17h'}</p>
             </div>
           </div>
         </div>

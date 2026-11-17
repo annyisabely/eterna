@@ -192,9 +192,9 @@ export const Footer: React.FC = () => {
 
         {/* Bottom copyright */}
         <div className="border-t border-mocha-800/60 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-mocha-300 gap-4">
-          <p>© {new Date().getFullYear()} Eterna Cosméticos. Todos os direitos reservados. Almirante Tamandaré – PR.</p>
+          <p>© {new Date().getFullYear()} Eterna Cosméticos e Acessórios. Todos os direitos reservados. Almirante Tamandaré – PR.</p>
           <p className="text-mocha-400">
-            Plataforma Profissional Eterna Cosméticos
+            Plataforma Profissional Eterna Cosméticos e Acessórios
           </p>
         </div>
       </div>
