@@ -39,47 +39,6 @@ export const Header: React.FC = () => {
 
   return (
     <header className="sticky top-0 z-40 bg-white border-b border-gray-100 shadow-xs">
-      {/* Top utility bar */}
-      <div className="bg-nude-900 text-nude-100 text-xs py-2 px-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1">
-              <MapPin className="w-3.5 h-3.5 text-nude-400" />
-              <span>{settings.store_address || 'Almirante Tamandaré – PR'}</span>
-            </span>
-            <span className="hidden sm:inline-block text-nude-300">|</span>
-            <span className="hidden sm:inline-flex items-center gap-1">
-              <span>Eterna • Cosméticos e Acessórios</span>
-            </span>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <a
-              href="https://www.instagram.com/eternacosmeticos/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white transition-colors hidden sm:flex items-center gap-1 text-pink-300 font-medium"
-            >
-              <span>@eternacosmeticos</span>
-            </a>
-            {settings.store_whatsapp && (
-              <a
-                href={`https://wa.me/${settings.store_whatsapp}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-white transition-colors flex items-center gap-1"
-              >
-                <Phone className="w-3 h-3 text-nude-400" />
-                <span>(41) 99994-9204</span>
-              </a>
-            )}
-            <Link to="/sobre" className="hover:text-white transition-colors">
-              Sobre a Loja
-            </Link>
-          </div>
-        </div>
-      </div>
-
       {/* Main navigation header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between gap-4">
         {/* Mobile menu button */}

@@ -190,8 +190,50 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
+        {/* Bottom utility bar (movida do topo para a parte de baixo) */}
+        <div className="border-t border-mocha-800/80 mt-10 pt-4 pb-2">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-3 text-xs text-mocha-200">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-3 text-center sm:text-left">
+              <span className="flex items-center gap-1.5 text-mocha-100">
+                <MapPin className="w-3.5 h-3.5 text-pink-400 shrink-0" />
+                <span>{settings.store_address || 'Av. Emílio Johnson, 782 - Vila Santa Terezinha, Almirante Tamandaré – PR, CEP 83501-000'}</span>
+              </span>
+              <span className="hidden sm:inline text-mocha-500">|</span>
+              <span className="text-pink-300 font-medium">Eterna • Cosméticos e Acessórios</span>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-4 text-xs">
+              {settings.store_instagram && (
+                <a
+                  href={settings.store_instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors flex items-center gap-1 text-pink-300 font-medium"
+                >
+                  <InstagramIcon className="w-3.5 h-3.5 text-pink-400" />
+                  <span>@eternacosmeticos</span>
+                </a>
+              )}
+              {settings.store_whatsapp && (
+                <a
+                  href={`https://wa.me/${settings.store_whatsapp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors flex items-center gap-1 text-nude-200"
+                >
+                  <Phone className="w-3.5 h-3.5 text-nude-400" />
+                  <span>(41) 99994-9204</span>
+                </a>
+              )}
+              <Link to="/sobre" className="hover:text-white transition-colors text-mocha-300 hover:underline">
+                Sobre a Loja
+              </Link>
+            </div>
+          </div>
+        </div>
+
         {/* Bottom copyright */}
-        <div className="border-t border-mocha-800/60 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-mocha-300 gap-4">
+        <div className="border-t border-mocha-800/60 mt-4 pt-4 flex flex-col sm:flex-row items-center justify-between text-[11px] text-mocha-400 gap-2">
           <p>© {new Date().getFullYear()} Eterna Cosméticos e Acessórios. Todos os direitos reservados. Almirante Tamandaré – PR.</p>
           <p className="text-mocha-400">
             Plataforma Profissional Eterna Cosméticos e Acessórios
