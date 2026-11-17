@@ -28,15 +28,15 @@ export const HeroBanner: React.FC = () => {
       <div className="relative bg-gradient-to-r from-nude-100 via-cream to-mocha-100 overflow-hidden border-b border-nude-200/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28 flex flex-col md:flex-row items-center justify-between gap-10">
           <div className="max-w-xl text-center md:text-left space-y-5">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-nude-200/60 text-nude-800 text-xs font-semibold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Eterna Cosméticos • Almirante Tamandaré</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-100/80 text-pink-900 text-xs font-semibold uppercase tracking-wider border border-pink-200/60 shadow-2xs">
+              <Sparkles className="w-3.5 h-3.5 text-pink-600" />
+              <span>Eterna • Cosméticos e Acessórios</span>
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-gray-900 tracking-tight leading-tight">
               Sua beleza merece o cuidado mais sofisticado.
             </h1>
             <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-              Descubra nossa curadoria exclusiva de maquiagens, perfumes, skincare e cosméticos de alta performance. Monte seu pedido online e confirme pelo WhatsApp oficial.
+              Descubra nossa curadoria exclusiva de maquiagens, perfumaria importada, skincare, cuidados capilares e acessórios em Almirante Tamandaré. Monte sua sacola e confirme pelo WhatsApp oficial com atendimento exclusivo.
             </p>
             <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2">
               <Link to="/catalogo">
@@ -52,13 +52,37 @@ export const HeroBanner: React.FC = () => {
             </div>
           </div>
 
-          <div className="w-full md:w-1/2 max-w-md aspect-4/3 rounded-2xl bg-nude-200/40 border border-nude-300/50 flex flex-col items-center justify-center p-8 text-center shadow-lg">
-            <span className="font-serif text-3xl font-bold tracking-widest text-nude-800">ETERNA</span>
-            <span className="text-xs uppercase tracking-[0.3em] text-mocha-700 font-medium mt-1">Cosméticos</span>
-            <div className="w-16 h-0.5 bg-nude-400 my-4" />
-            <p className="text-xs text-mocha-800 italic">
-              "Realçando sua essência com os melhores cosméticos e atendimento exclusivo."
+          {/* Editorial Card Showcase */}
+          <div className="w-full md:w-1/2 max-w-md rounded-3xl bg-white/90 backdrop-blur-xs border border-pink-100 p-6 sm:p-8 flex flex-col items-center text-center shadow-xl relative overflow-hidden group">
+            <div className="absolute -top-12 -right-12 w-36 h-36 bg-pink-200/40 rounded-full blur-2xl pointer-events-none" />
+            <div className="relative mb-3">
+              <img
+                src="/logo-eterna.jpg"
+                alt="Eterna Cosméticos e Acessórios"
+                className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover ring-4 ring-pink-500/20 shadow-md group-hover:scale-105 transition-transform"
+              />
+            </div>
+            <span className="font-serif text-2xl font-bold tracking-wider text-nude-900">ETERNA</span>
+            <span className="text-[10px] uppercase tracking-[0.25em] text-pink-700 font-semibold mt-0.5">
+              Cosméticos e Acessórios
+            </span>
+            <div className="w-16 h-0.5 bg-pink-300/80 my-3 rounded-full" />
+            <p className="text-xs text-gray-600 italic leading-relaxed">
+              "Realçando sua essência com produtos originais, marcas consagradas e atendimento próximo em Almirante Tamandaré."
             </p>
+
+            {/* Quick badges preview */}
+            <div className="grid grid-cols-3 gap-2 w-full mt-4 pt-4 border-t border-gray-100 text-[10px]">
+              <div className="p-2 rounded-xl bg-pink-50/60 font-semibold text-pink-900">
+                ✨ Maquiagem
+              </div>
+              <div className="p-2 rounded-xl bg-pink-50/60 font-semibold text-pink-900">
+                🌸 Perfumaria
+              </div>
+              <div className="p-2 rounded-xl bg-pink-50/60 font-semibold text-pink-900">
+                🌿 Skincare
+              </div>
+            </div>
           </div>
         </div>
       </div>

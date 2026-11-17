@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { query } from '../config/database';
+import { query, mockProducts, mockOrders } from '../config/database';
 
 export async function getDashboardMetrics(
   req: Request,
@@ -70,14 +70,70 @@ export async function getDashboardMetrics(
       ),
     ]);
 
+    const totalRevenueDb = parseFloat(revenueResult.rows[0]?.total_revenue ?? '0');
+    const totalOrdersDb = parseInt(ordersResult.rows[0]?.total_orders ?? '0');
+    const totalProductsDb = parseInt(productsResult.rows[0]?.total_products ?? '0');
+
+    // If DB returned zeros because running in in-memory fallback, calculate from mock dataset
+    if (totalProductsDb === 0 && mockProducts.length > 0) {
+      const pendingCount = mockOrders.filter(
+        (o) => o.status !== 'completed' && o.status !== 'cancelled'
+      ).length;
+      const completedCount = mockOrders.filter((o) => o.status === 'completed').length;
+      const totalRev = mockOrders.reduce(
+        (acc, o) => acc + (o.status === 'completed' || o.status === 'confirmed' ? Number(o.total) : 0),
+        0
+      );
+      const lowStock = mockProducts.filter(
+        (p) => p.stock_quantity > 0 && p.stock_quantity <= (p.min_stock_level || 5)
+      ).length;
+      const outOfStock = mockProducts.filter((p) => p.stock_quantity === 0).length;
+
+      const topProducts = mockProducts
+        .slice()
+        .sort((a, b) => (b.sold_count || 0) - (a.sold_count || 0))
+        .slice(0, 5)
+        .map((p) => ({
+          id: p.id,
+          name: p.name,
+          slug: p.slug,
+          sold_qty: p.sold_count || 0,
+          revenue: (p.sold_count || 0) * (p.promotional_price || p.price),
+        }));
+
+      res.json({
+        status: 'ok',
+        data: {
+          total_revenue: totalRev,
+          total_orders: mockOrders.length,
+          orders_pending: pendingCount,
+          orders_completed: completedCount,
+          total_products: mockProducts.length,
+          total_customers: Math.max(1, mockOrders.length),
+          low_stock_count: lowStock,
+          out_of_stock_count: outOfStock,
+          top_products: topProducts,
+          recent_orders: mockOrders.slice(0, 10),
+          sales_by_day: [
+            {
+              day: new Date().toISOString().slice(0, 10),
+              orders_count: mockOrders.length,
+              revenue: totalRev,
+            },
+          ],
+        },
+      });
+      return;
+    }
+
     res.json({
       status: 'ok',
       data: {
-        total_revenue: parseFloat(revenueResult.rows[0]?.total_revenue ?? '0'),
-        total_orders: parseInt(ordersResult.rows[0]?.total_orders ?? '0'),
+        total_revenue: totalRevenueDb,
+        total_orders: totalOrdersDb,
         orders_pending: parseInt(ordersResult.rows[0]?.orders_pending ?? '0'),
         orders_completed: parseInt(ordersResult.rows[0]?.orders_completed ?? '0'),
-        total_products: parseInt(productsResult.rows[0]?.total_products ?? '0'),
+        total_products: totalProductsDb,
         total_customers: parseInt(customersResult.rows[0]?.total_customers ?? '0'),
         low_stock_count: parseInt(stockResult.rows[0]?.low_stock_count ?? '0'),
         out_of_stock_count: parseInt(stockResult.rows[0]?.out_of_stock_count ?? '0'),
