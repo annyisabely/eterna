@@ -42,6 +42,10 @@ export async function login(req: Request, res: Response, next: NextFunction): Pr
       status: 'ok',
       token,
       admin: { id: admin.id, name: admin.name, email: admin.email },
+      data: {
+        token,
+        admin: { id: admin.id, name: admin.name, email: admin.email },
+      },
     });
   } catch (err) {
     next(err);
@@ -58,7 +62,7 @@ export async function me(req: Request, res: Response, next: NextFunction): Promi
       res.status(404).json({ status: 'error', message: 'Admin não encontrado' });
       return;
     }
-    res.json({ status: 'ok', admin: result.rows[0] });
+    res.json({ status: 'ok', admin: result.rows[0], data: result.rows[0] });
   } catch (err) {
     next(err);
   }

@@ -60,17 +60,24 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand & Story */}
           <div className="space-y-4">
-            <div>
-              <span className="font-serif text-2xl font-bold tracking-wider text-white">
-                ETERNA
-              </span>
-              <p className="text-[11px] uppercase tracking-[0.25em] text-nude-400 font-medium">
-                Cosméticos
-              </p>
+            <div className="flex items-center gap-3">
+              <img
+                src="/logo-eterna.jpg"
+                alt="Eterna Cosméticos e Acessórios"
+                className="w-12 h-12 rounded-full object-cover ring-2 ring-pink-500/40 shadow-md"
+              />
+              <div>
+                <span className="font-serif text-2xl font-bold tracking-wider text-white">
+                  ETERNA
+                </span>
+                <p className="text-[10px] uppercase tracking-[0.22em] text-pink-300 font-semibold">
+                  Cosméticos e Acessórios
+                </p>
+              </div>
             </div>
             <p className="text-xs text-mocha-200 leading-relaxed">
               {settings.store_about ||
-                'Sua loja de referência em cosméticos, maquiagem, skincare e cuidados capilares em Almirante Tamandaré – PR. Beleza, sofisticação e cuidado em cada detalhe.'}
+                'Sua loja de referência em cosméticos, maquiagem, skincare, cuidados capilares e acessórios em Almirante Tamandaré – PR. Beleza, sofisticação e cuidado em cada detalhe.'}
             </p>
             {settings.store_instagram && (
               <a

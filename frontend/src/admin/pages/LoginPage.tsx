@@ -33,7 +33,11 @@ export const LoginPage: React.FC = () => {
         password,
       });
 
-      const { token, admin } = res.data.data;
+      const token = res.data.token || res.data.data?.token;
+      const admin = res.data.admin || res.data.data?.admin;
+      if (!token || !admin) {
+        throw new Error('Resposta de autenticação inválida');
+      }
       login(token, admin);
       toast.success(`Bem-vinda, ${admin.name}!`);
       navigate('/admin');
@@ -50,12 +54,17 @@ export const LoginPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       <div className="w-full max-w-md bg-white rounded-2xl border border-gray-100 p-8 shadow-xl space-y-6">
-        <div className="text-center space-y-2">
+        <div className="text-center space-y-2 flex flex-col items-center">
+          <img
+            src="/logo-eterna.jpg"
+            alt="Eterna Cosméticos e Acessórios"
+            className="w-16 h-16 rounded-full object-cover shadow-md ring-2 ring-pink-500/30 mb-1"
+          />
           <span className="font-serif text-3xl font-bold tracking-wider text-nude-900">
             ETERNA
           </span>
-          <p className="text-[11px] uppercase tracking-[0.25em] text-mocha-600 font-semibold">
-            Cosméticos • Acesso Administrativo
+          <p className="text-[11px] uppercase tracking-[0.22em] text-pink-700 font-semibold">
+            Cosméticos e Acessórios • Painel Administrativo
           </p>
           <p className="text-xs text-gray-500 pt-1">
             Painel de controle comercial restrito à administração da loja.

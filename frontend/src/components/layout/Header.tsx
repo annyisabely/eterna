@@ -49,7 +49,7 @@ export const Header: React.FC = () => {
             </span>
             <span className="hidden sm:inline-block text-nude-300">|</span>
             <span className="hidden sm:inline-flex items-center gap-1">
-              <span>Beleza, Cosméticos e Cuidados Pessoais</span>
+              <span>Eterna • Cosméticos e Acessórios</span>
             </span>
           </div>
 
@@ -84,13 +84,20 @@ export const Header: React.FC = () => {
         </button>
 
         {/* Brand Logo */}
-        <Link to="/" className="flex flex-col items-start leading-none group">
-          <span className="font-serif text-2xl sm:text-3xl font-semibold tracking-wider text-nude-900 group-hover:text-nude-700 transition-colors">
-            ETERNA
-          </span>
-          <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-mocha-600 font-medium">
-            Cosméticos
-          </span>
+        <Link to="/" className="flex items-center gap-3 group">
+          <img
+            src="/logo-eterna.jpg"
+            alt="Eterna Cosméticos e Acessórios"
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover shadow-sm ring-2 ring-pink-500/20 group-hover:scale-105 transition-transform"
+          />
+          <div className="flex flex-col items-start leading-tight">
+            <span className="font-serif text-2xl sm:text-3xl font-semibold tracking-wider text-nude-900 group-hover:text-nude-700 transition-colors">
+              ETERNA
+            </span>
+            <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.22em] text-pink-700 font-semibold">
+              Cosméticos e Acessórios
+            </span>
+          </div>
         </Link>
 
         {/* Search Bar (Desktop) */}
