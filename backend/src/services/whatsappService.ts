@@ -16,7 +16,7 @@ interface WhatsAppOrder extends Partial<Order> {
 
 export function generateWhatsAppMessage(order: WhatsAppOrder): string {
   const lines: string[] = [];
-  lines.push(`🌸 *Eterna Cosméticos*`);
+  lines.push(`🌸 *Eterna Cosméticos e Acessórios*`);
   lines.push(`📋 *Pedido: ${order.order_number}*`);
   lines.push('');
   lines.push(`👤 Cliente: ${order.customer_name}`);
@@ -36,9 +36,10 @@ export function generateWhatsAppMessage(order: WhatsAppOrder): string {
   lines.push(`✅ *Total: R$ ${Number(order.total).toFixed(2).replace('.', ',')}*`);
   lines.push('');
   if (order.fulfillment_type === 'pickup') {
-    lines.push('🏪 *Retirada na loja*');
+    lines.push('🏪 *Retirada na loja:*');
+    lines.push('Av. Emílio Johnson, 782 - Almirante Tamandaré/PR');
   } else {
-    lines.push('🚚 *Entrega*');
+    lines.push('🚚 *Entrega:*');
     if (order.delivery_address) {
       lines.push(`📍 Endereço: ${order.delivery_address}`);
     }
@@ -48,5 +49,7 @@ export function generateWhatsAppMessage(order: WhatsAppOrder): string {
 
   const message = lines.join('\n');
   const encoded = encodeURIComponent(message);
-  return `https://wa.me/55${env.WHATSAPP_NUMBER}?text=${encoded}`;
+  const rawNum = String(env.WHATSAPP_NUMBER || '5541999949204').replace(/\D/g, '');
+  const cleanNumber = rawNum.startsWith('55') ? rawNum : `55${rawNum}`;
+  return `https://wa.me/${cleanNumber}?text=${encoded}`;
 }

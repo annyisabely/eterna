@@ -16,6 +16,7 @@ import { CouponsPage } from '../pages/CouponsPage';
 import { BannersPage } from '../pages/BannersPage';
 import { ReportsPage } from '../pages/ReportsPage';
 import { SettingsPage } from '../pages/SettingsPage';
+import { AdminProfilePage } from '../pages/AdminProfilePage';
 import { Spinner } from '../../components/ui/Spinner';
 
 export const AdminRoutes: React.FC = () => {
@@ -66,6 +67,7 @@ export const AdminRoutes: React.FC = () => {
         <Route path="banners" element={<BannersPage />} />
         <Route path="relatorios" element={<ReportsPage />} />
         <Route path="configuracoes" element={<SettingsPage />} />
+        <Route path="perfil" element={<AdminProfilePage />} />
         <Route path="*" element={<Navigate to="/admin" replace />} />
       </Route>
     </Routes>

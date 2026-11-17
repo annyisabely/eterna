@@ -35,7 +35,17 @@ export interface CreateOrderResult {
 
 export const createOrder = async (payload: CreateOrderPayload): Promise<CreateOrderResult> => {
   const response = await api.post('/orders', payload);
-  return response.data.data;
+  const data = response.data.data || response.data;
+  const orderNumber = data.order_number || response.data.order_number;
+  const whatsappUrl = data.whatsapp_url || response.data.whatsapp_url;
+  const total = Number(data.total ?? response.data.total ?? 0);
+  return {
+    ...data,
+    order_number: orderNumber,
+    whatsapp_url: whatsappUrl,
+    total: total,
+    order: data,
+  };
 };
 
 export const getOrderById = async (id: string) => {

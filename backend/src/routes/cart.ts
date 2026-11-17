@@ -10,7 +10,7 @@ router.post(
   '/items',
   [
     body('session_id').notEmpty().withMessage('session_id é obrigatório'),
-    body('product_id').isUUID().withMessage('product_id inválido'),
+    body('product_id').notEmpty().withMessage('product_id obrigatório'),
     body('quantity').isInt({ min: 1 }).withMessage('quantity deve ser no mínimo 1'),
   ],
   validate,
@@ -20,7 +20,7 @@ router.delete(
   '/items',
   [
     body('session_id').notEmpty().withMessage('session_id é obrigatório'),
-    body('product_id').isUUID().withMessage('product_id inválido'),
+    body('product_id').notEmpty().withMessage('product_id obrigatório'),
   ],
   validate,
   removeFromCart

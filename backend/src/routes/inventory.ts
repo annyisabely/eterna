@@ -13,7 +13,7 @@ router.post(
   '/movements',
   requireAuth,
   [
-    body('product_id').isUUID().withMessage('product_id inválido'),
+    body('product_id').notEmpty().withMessage('product_id obrigatório'),
     body('type').isIn(['in', 'out', 'adjustment']).withMessage('Tipo inválido (in, out, adjustment)'),
     body('quantity').isInt({ min: 0 }).withMessage('Quantidade inválida'),
   ],

@@ -320,8 +320,8 @@ const mockProducts = [
   },
 ];
 
-const mockOrders: any[] = [];
-const mockCoupons = [
+export const mockOrders: any[] = [];
+export const mockCoupons = [
   {
     id: 'cp1',
     code: 'ETERNA10',
@@ -333,6 +333,7 @@ const mockCoupons = [
     used_count: 5,
   },
 ];
+export { mockProducts, mockCategories, mockBrands };
 
 export async function query<T extends QueryResultRow = QueryResultRow>(
   text: string,
@@ -390,6 +391,10 @@ export async function query<T extends QueryResultRow = QueryResultRow>(
     }
 
     if (queryUpper.includes('SELECT') && queryUpper.includes('ORDERS')) {
+      if ((queryUpper.includes('WHERE ID = $1') || queryUpper.includes('WHERE ORDER_NUMBER = $1')) && params && params[0]) {
+        const found = mockOrders.filter((o) => o.id === params[0] || o.order_number === params[0]);
+        return { rows: found as any[], rowCount: found.length, command: 'SELECT', oid: 0, fields: [] };
+      }
       return { rows: mockOrders as any[], rowCount: mockOrders.length, command: 'SELECT', oid: 0, fields: [] };
     }
 

@@ -11,7 +11,7 @@ router.post(
   '/',
   [
     body('cart_items').isArray({ min: 1 }).withMessage('Carrinho vazio'),
-    body('cart_items.*.product_id').isUUID().withMessage('product_id inválido'),
+    body('cart_items.*.product_id').notEmpty().withMessage('product_id obrigatório'),
     body('cart_items.*.quantity').isInt({ min: 1 }).withMessage('Quantidade inválida'),
     body('customer_name').notEmpty().withMessage('Nome obrigatório'),
     body('customer_phone').notEmpty().withMessage('Telefone obrigatório'),
