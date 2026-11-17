@@ -84,10 +84,10 @@ export const Footer: React.FC = () => {
                 href={settings.store_instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-xs text-nude-300 hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 text-xs text-pink-300 hover:text-white transition-colors font-medium"
               >
-                <InstagramIcon className="w-4 h-4" />
-                <span>Siga-nos no Instagram</span>
+                <InstagramIcon className="w-4 h-4 text-pink-400" />
+                <span>@eternacosmeticos</span>
               </a>
             )}
           </div>

@@ -54,6 +54,14 @@ export const Header: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-4">
+            <a
+              href="https://www.instagram.com/eternacosmeticos/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors hidden sm:flex items-center gap-1 text-pink-300 font-medium"
+            >
+              <span>@eternacosmeticos</span>
+            </a>
             {settings.store_whatsapp && (
               <a
                 href={`https://wa.me/${settings.store_whatsapp}`}
@@ -62,7 +70,7 @@ export const Header: React.FC = () => {
                 className="hover:text-white transition-colors flex items-center gap-1"
               >
                 <Phone className="w-3 h-3 text-nude-400" />
-                <span>Atendimento WhatsApp</span>
+                <span>WhatsApp</span>
               </a>
             )}
             <Link to="/sobre" className="hover:text-white transition-colors">

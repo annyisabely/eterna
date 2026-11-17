@@ -115,16 +115,16 @@ export const ContactPage: React.FC = () => {
 
             {settings.store_instagram && (
               <div className="flex items-start gap-3">
-                <InstagramIcon className="w-5 h-5 text-nude-600 shrink-0 mt-0.5" />
+                <InstagramIcon className="w-5 h-5 text-pink-600 shrink-0 mt-0.5" />
                 <div>
                   <p className="font-semibold text-gray-900">Instagram</p>
                   <a
                     href={settings.store_instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-nude-700 hover:underline"
+                    className="text-pink-700 hover:text-pink-800 font-medium hover:underline flex items-center gap-1"
                   >
-                    {settings.store_instagram}
+                    @eternacosmeticos
                   </a>
                 </div>
               </div>
