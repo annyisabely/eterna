@@ -13,6 +13,7 @@ import { OrderSuccessPage } from './pages/OrderSuccessPage';
 import { FavoritesPage } from './pages/FavoritesPage';
 import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
+import { PublicLoginPage } from './pages/PublicLoginPage';
 
 // Admin Panel Routes
 import { AdminRoutes } from './admin/routes/AdminRoutes';
@@ -55,6 +56,8 @@ export function App() {
           <Route path="/favoritos" element={<FavoritesPage />} />
           <Route path="/sobre" element={<AboutPage />} />
           <Route path="/contato" element={<ContactPage />} />
+          <Route path="/login" element={<PublicLoginPage />} />
+          <Route path="/entrar" element={<Navigate to="/login" replace />} />
 
           {/* Catch-all redirect */}
           <Route path="*" element={<Navigate to="/" replace />} />

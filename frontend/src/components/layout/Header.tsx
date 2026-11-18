@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Search, Heart, ShoppingBag, Menu, X, Phone, MapPin } from 'lucide-react';
+import { Search, Heart, ShoppingBag, Menu, X, Phone, MapPin, User } from 'lucide-react';
 import { useCartStore } from '../../store/cartStore';
 import { useFavoritesStore } from '../../store/favoritesStore';
+import { useAdminAuthStore } from '../../admin/store/authStore';
 import { getCategories, Category } from '../../api/categories';
 import { getStoreSettings, StoreSettings } from '../../api/settings';
 
@@ -11,6 +12,7 @@ export const Header: React.FC = () => {
   const location = useLocation();
   const { toggleCart, itemCount } = useCartStore();
   const { ids: favoriteIds } = useFavoritesStore();
+  const { isAuthenticated: isAdminAuth, admin } = useAdminAuthStore();
 
   const [categories, setCategories] = useState<Category[]>([]);
   const [settings, setSettings] = useState<StoreSettings>({});
@@ -82,7 +84,24 @@ export const Header: React.FC = () => {
         </form>
 
         {/* Action Icons */}
-        <div className="flex items-center gap-3 sm:gap-4">
+        <div className="flex items-center gap-2 sm:gap-3">
+          {/* User Account / Login */}
+          <Link
+            to={isAdminAuth ? '/admin' : '/login'}
+            className="flex items-center gap-2 p-2 sm:px-3 text-gray-700 hover:text-pink-700 rounded-full sm:rounded-lg hover:bg-pink-50/50 transition-colors"
+            title={isAdminAuth ? 'Painel Administrativo' : 'Entrar na Conta'}
+          >
+            <User className="w-5 h-5 text-gray-700" />
+            <div className="hidden lg:flex flex-col text-left leading-none">
+              <span className="text-[10px] text-gray-400 font-medium">
+                {isAdminAuth ? 'Administradora' : 'Olá, bem-vinda'}
+              </span>
+              <span className="text-xs font-semibold text-gray-800">
+                {isAdminAuth ? 'Painel Admin' : 'Entrar'}
+              </span>
+            </div>
+          </Link>
+
           <Link
             to="/favoritos"
             className="p-2 text-gray-700 hover:text-nude-700 relative rounded-full hover:bg-gray-100 transition-colors"
@@ -203,6 +222,14 @@ export const Header: React.FC = () => {
           </div>
 
           <div className="border-t border-gray-100 pt-3 space-y-1">
+            <Link
+              to={isAdminAuth ? '/admin' : '/login'}
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-semibold text-pink-700 bg-pink-50/60"
+            >
+              <User className="w-4 h-4" />
+              <span>{isAdminAuth ? 'Painel Administrativo' : 'Entrar na Conta / Minha Sacola'}</span>
+            </Link>
             <Link
               to="/sobre"
               onClick={() => setMobileMenuOpen(false)}

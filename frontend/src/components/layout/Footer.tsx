@@ -143,6 +143,16 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/login" className="hover:text-white transition-colors text-pink-300">
+                  Entrar / Minha Conta
+                </Link>
+              </li>
+              <li>
+                <Link to="/admin" className="hover:text-white transition-colors text-pink-300">
+                  Painel Administrativo
+                </Link>
+              </li>
+              <li>
                 <span className="text-mocha-400">Política de Privacidade & LGPD</span>
               </li>
               <li>
